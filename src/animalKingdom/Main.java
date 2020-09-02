@@ -4,6 +4,18 @@ import java.util.List;
 import java.util.ArrayList;
 
 public class Main {
+	private static List<AbstractAnimal> filterAnimal(List<AbstractAnimal> animals, CheckAnimal tester) {
+		List<AbstractAnimal> tempList = new ArrayList<>();
+
+		for (AbstractAnimal v : animals) {
+			if (tester.test(v)) {
+				tempList.add(v);
+			}
+		}
+
+		return tempList;		
+	}
+
 	public static void main(String[] args) {
 		System.out.println("Welcome to Animal Kingdom!!!");
 
@@ -67,8 +79,26 @@ public class Main {
 
 		myList.forEach((v) -> System.out.println(v));
 
-		System.out.println("\nList all the animals order by how they move");
-		
+		System.out.println("\nList only those animals the breath with lungs");
+		List<AbstractAnimal> filteredList = filterAnimal(myList, v -> v.breath() == "lungs");
+		filteredList.forEach((v) -> System.out.println(v));
 
+		System.out.println("\nList only those animals that breath with lungs and were named in 1758");
+		filteredList = filterAnimal(myList, v -> (v.breath() == "lungs") && (v.getYear() == 1758));
+		filteredList.forEach((v) -> System.out.println(v));
+
+		System.out.println("\nList only those animals that lay eggs and breath with lungs");
+		filteredList = filterAnimal(myList, v -> (v.breath() == "lungs") && (v.reproduce() == "eggs"));
+		filteredList.forEach((v) -> System.out.println(v));
+
+		System.out.println("\nList alphabetically only those animals that were named in 1758");
+		filteredList = filterAnimal(myList, v -> (v.getYear() == 1758));
+		filteredList.sort((v1, v2) -> v1.getName().compareToIgnoreCase(v2.getName()));
+		filteredList.forEach((v) -> System.out.println(v));
+
+		System.out.println("\nFor the list of animals, list alphabetically those animals that are mammals");
+		filteredList = filterAnimal(myList, v -> (v instanceof Mammal));
+		filteredList.sort((v1, v2) -> v1.getName().compareToIgnoreCase(v2.getName()));
+		filteredList.forEach((v) -> System.out.println(v));
 	}
 }
