@@ -50,5 +50,25 @@ public class Main {
 		myList.add(perch);
 
 		System.out.println(myList);
+
+		System.out.println("\nList all the animals in descending order by year named");
+		myList.sort((v1, v2) -> v2.getYear() - v1.getYear()); // descending order
+		// myList.sort((v1, v2) -> v1.getYear() - v2.getYear()); // ascending order
+
+		myList.forEach((v) -> System.out.println(v)); // prints nicely
+
+		System.out.println("\nList all the animals alphabetically");
+		myList.sort((v1, v2) -> v1.getName().compareToIgnoreCase(v2.getName()));
+
+		myList.forEach((v) -> System.out.println(v));
+
+		System.out.println("\nList all the animals order by how they move");
+		myList.sort((v1, v2) -> v1.move().compareToIgnoreCase(v2.move()));
+
+		myList.forEach((v) -> System.out.println(v));
+
+		System.out.println("\nList all the animals order by how they move");
+		
+
 	}
 }
