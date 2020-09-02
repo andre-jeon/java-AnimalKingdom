@@ -27,5 +27,28 @@ public class Main {
 		Fish salmon = new Fish("Salmon", 1758);
 		Fish catfish = new Fish("Catfish", 1817);
 		Fish perch = new Fish("Perch", 1758);
+
+		// ArrayList
+		List<AbstractAnimal> myList = new ArrayList<>();
+
+		myList.add(panda);
+		myList.add(zebra);
+		myList.add(koala);
+		myList.add(sloth);
+		myList.add(armadillo);
+		myList.add(raccoon);
+		myList.add(bigfoot);
+
+		myList.add(pigeon);
+		myList.add(peacock);
+		myList.add(toucan);
+		myList.add(parrot);
+		myList.add(swan);
+
+		myList.add(salmon);
+		myList.add(catfish);
+		myList.add(perch);
+
+		System.out.println(myList);
 	}
 }

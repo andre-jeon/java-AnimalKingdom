@@ -45,4 +45,12 @@ abstract class AbstractAnimal {
 	public void setYear() {
 		this.year = year;
 	}
+
+	@Override
+	public String toString() {
+		return "Name: " + name + " Year: " + year;
+	}
 }
+
+
+
