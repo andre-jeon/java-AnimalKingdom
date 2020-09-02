@@ -7,6 +7,7 @@ abstract class AbstractAnimal {
 	int id;
 	String name;
 	int year;
+	int food;
 
 	public AbstractAnimal(String name, int year) {
 		maxId++;
@@ -15,6 +16,15 @@ abstract class AbstractAnimal {
 		this.year = year;
 	}
 
+	abstract String move();
+	abstract String breath();
+	abstract String reproduce();
+
+	void consume() {
+		food++;
+	}
+
+	// getters
 	public int getId() {
 		return id;
 	}
@@ -26,19 +36,13 @@ abstract class AbstractAnimal {
 	public int getYear() {
 		return year;
 	}
-	
-	// parent and child should know about the field
-	protected int food;
 
-	// default constructor
-	public AbstractAnimal() {
-		food = 1;
+	// setters
+	public void setName() {
+		this.name = name;
 	}
 
-	public AbstractAnimal() {
-		this.food = food;
+	public void setYear() {
+		this.year = year;
 	}
-
-	abstract String getName();
-	abstract String getId();
 }
